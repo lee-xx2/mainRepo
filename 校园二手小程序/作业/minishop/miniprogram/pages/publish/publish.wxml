@@ -1,0 +1,77 @@
+<view class="page">
+    <form bindsubmit="getsubmit">
+      <view style="height:30rpx"></view>
+      <view class="target_style">
+      <textarea class="textarea01" placeholder="在此输入商品名" name="goods_name" value="{{goods_name}}" bindblur="nameinput"></textarea>
+      </view>
+
+      <view>
+      <view class="border_line"></view>
+        <picker bindchange="bindPickerChange" value="{{type}}" range="{{array}}">
+          <view class="picker">
+          商品类别：{{type}}
+          </view>
+        </picker>
+      </view>
+      
+      <view class="border_line"></view>
+
+      <view class="priceinput">
+        <text>原价：</text>
+        <input class="input01" type="digit" name="original_price" placeholder="0" bindinput="originalpriceInput" value="{{original_price}}" />
+        <text>二手价：</text>
+        <input class="input01" type="digit" name="price" placeholder="0" bindinput="priceInput" value="{{price}}" />
+      </view>
+
+      <view class="target_style">
+        <view class="border_line"></view>
+        <textarea class="textarea02" placeholder="在此输入商品详情" name="spec" value="{{spec}}" bindinput="detailinput"></textarea>
+      </view>
+
+      <view class="border_line"></view>
+      <view style="height:60rpx"></view>
+      <view class='pages'>
+  <view class="images_box">
+    <block wx:key="imgbox" wx:for="{{imgbox}}">
+      <view class='img-box'>
+        <image class='img' src='{{item}}'></image>
+        <view class='img-delete' data-deindex='{{index}}' bindtap='imgDelete'>
+          <image class='img' src='/images/delete.png'></image>   
+        </view>
+      </view>
+    </block>
+    <view class='img-box' bindtap='addPic' wx:if="{{imgbox.length<9}}">
+      <image class='img' src='/images/upload.png'></image>   
+    </view>
+    </view>
+     </view>
+
+<view style="height:60rpx"></view>
+<view class="container">
+   
+    <button bindtap="getLocation"  class="getlocation">获取当前位置</button>
+    <view wx:if="{{address !=''}}">
+     <view>
+      位置:{{address}}
+     </view>
+    </view>
+  </view>
+
+ <view style="height:60rpx"></view>
+    <button bindtap='getsubmit' class="button-type">发布</button>
+  </form>
+   <view style="height:60rpx"></view>
+   <view class="page-section page-section-gap">
+      <map
+        id="myMap"
+        style="width: 100%; height: 300px;"
+        layer-style="2" 
+        latitude="{{latitude}}"
+        longitude="{{longitude}}"
+        show-location
+        markers="{{markers}}"
+      ></map>
+    </view>
+    <view>
+    </view>
+</view>

@@ -1,0 +1,57 @@
+<!-- 用户头像等 -->
+<view class="user_info_wrap">
+  <view wx:if="{{userInfo.avatarUrl}}" class="user_info">
+    <image class="user_icon" src="{{userInfo.avatarUrl}}"></image>
+    <view class="user_name">{{userInfo.nickName}}</view>
+    <view class="info_setting">
+      <navigator url="../changeForm/ChangeForm"><image src="../../images/setting.png" class="setting_img"></image></navigator>
+    </view>
+    <view class="scan" bindtap="scanCode">
+        <image src="../../images/scan.png" class="scan_img"></image>
+    </view>
+  </view>
+  <view wx:else class="user_btn">
+    <button type="primary" plain open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">登录</button>
+  </view>
+</view>
+<!-- 已发布和未发布 -->
+<view class="tabs">
+  <view class="tabs_title">
+    <view wx:for="{{tabs}}" wx:key="id" class="title_item {{item.isActive?'active':''}}" bindtap="handleItemTap" data-index="{{index}}">{{item.value}}      
+    </view>
+  </view>
+  <view class="tabs_content">
+    <block wx:if="{{tabs[0].isActive}}">
+      <view wx:if="{{publishedList.length > 0}}" class="first_tab">
+        <navigator class="goods_item" wx:for="{{publishedList}}" wx:key="_id" url="/pages/goods_detail2/goods_detail2?_id={{item._id}}&Transaction_status={{item.Transaction_status}}">
+          <view class="goods_img_wrap">
+            <image mode="widthFix" src="{{item.img[0]}}" class="goods_img"></image>
+          </view>
+          <view class="goods_info_wrap">
+            <view class="goods_name">{{item.goods_name}}</view>
+            <view class="goods_sort">#{{item.type}}</view>
+          </view>
+        </navigator>
+      </view>
+      <view wx:else class="noPublish">
+        暂时没有发布商品哦
+      </view>
+    </block>
+    <block wx:elif="{{tabs[1].isActive}}">
+      <view wx:if="{{tradedList.length > 0}}" class="second_tab">
+        <navigator class="goods_item" wx:for="{{tradedList}}" wx:key="_id" url="/pages/goods_detail2/goods_detail2?_id={{item._id}}&Transaction_status={{item.Transaction_status}}">
+          <view class="goods_img_wrap">
+            <image mode="widthFix" src="{{item.img[0]}}" class="goods_img"></image>
+          </view>
+          <view class="goods_info_wrap">
+            <view class="goods_name">{{item.goods_name}}</view>
+            <view class="goods_sort">#{{item.type}}</view>
+          </view>
+        </navigator>
+      </view>
+      <view wx:else class="noTrade">
+        暂时没有交易商品哦
+      </view>
+    </block>
+  </view>
+</view>

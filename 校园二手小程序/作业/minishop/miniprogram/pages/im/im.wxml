@@ -1,0 +1,9 @@
+<view class="container">
+  <!-- 简介 -->
+  
+
+  <view class="uploader">
+    
+    <button bindtap="check" >开始聊天</button>
+  </view>
+</view>

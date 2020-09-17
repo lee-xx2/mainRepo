@@ -1,0 +1,36 @@
+<!--pages/goods_detail/goods_detail.wxml-->
+<view class="detail_swiper">
+  <swiper class="pictures" autoplay="true" indicator-dots="true" circular="true">
+    <swiper-item wx:for="{{queryResult.img}}" bindtap="handlePriview" data-url="{{item}}">
+      <image mode="aspectFit" src="{{item}}"></image>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="prices">
+  <view class="goods_price">￥{{queryResult.price}}</view>
+  <view class="original_price">原价:￥{{queryResult.original_price}}</view>
+</view>
+<view class="bulletin_date">发布于:{{queryResult.bulletin_date}}</view>
+<view class="goods_name_row">
+  <view class="goods_name">{{queryResult.goods_name}}</view>
+</view>
+<view class="sell_spec_title">商品描述</view>
+<view class="sell_spec">{{queryResult.spec}}</view>
+
+<view class="btm_tool">
+  <view class=" whiteSpace">
+    <view class="iconfont icon-fenxiang"></view>
+    <view>分享给朋友</view>
+    <button open-type="share"></button>
+  </view>
+
+  <view wx:if="{{Transaction_status == 0}}" bindtap="dealClose" class="btm_tool_item" >
+    <view class="iconfont icon-lianxiren"></view>
+    <view>交易完成</view>
+  </view>
+
+  <view wx:if="{{Transaction_status == 1}}" class="btm_tool_item2" >
+    <view class="iconfont icon-lianxiren"></view>
+    <view>已交易</view>
+  </view>
+</view>

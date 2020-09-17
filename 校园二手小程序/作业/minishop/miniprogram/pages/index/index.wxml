@@ -1,0 +1,39 @@
+<!--index.wxml-->
+
+<view class="search_input">
+  <navigator url="../search/search" open-type="navigate">
+    <view class="iconfont icon-search"></view>搜 索
+  </navigator>
+
+</view>
+
+<swiper class="swiperCon" autoplay="true" indicator-dots="true" circular="true">
+  <swiper-item wx:for="{{swiperList}}" wx:key="">
+    <image mode="heightFix" src="{{item.image_src}}"></image>
+  </swiper-item>
+</swiper>
+
+
+<view class="scroll_set">
+  <scroll-view class="scroll_view " scroll-x="true" style="white-space: nowrap;">
+    <block wx:for="{{title}}" wx:key="{{index}}">
+      <view class="{{current==index ? 'select' : ''}}" data-name="{{item}}" bindtap="titletap">{{item}}</view>
+    </block>
+  </scroll-view>
+</view>
+
+<swiper circular="true" bindchange="swiperchange" class="swipershow" current="{{swiper}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+
+  <block wx:for="{{title}}" wx:key="{{index}}">
+    <swiper-item style="overflow:scroll">
+      <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+        <import src="../template/template" />
+        <view>
+          <template is="show" data="{{array,shownum}}" />
+        </view>
+        <view class="end" bindtap="more" wx:if="{{shownum<array.length}}">点击加载更多</view>
+        <view class="end" bindtap="more" wx:if="{{shownum>=array.length}}">没有更多了，去看看其他商品吧</view>
+      </scroll-view>
+    </swiper-item>
+  </block>
+</swiper>

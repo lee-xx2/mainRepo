@@ -1,0 +1,27 @@
+<template name="show">
+  <block wx:for="{{array}}" wx:key="{{index}}" wx:if="{{index<shownum}}">
+    <navigator url="../../pages/goods_detail/goods_detail?_id={{item._id}}">
+      <view class="templateShow">
+        <view class="user">
+          <image class="touxiang" src="{{item.user[0].avatarUrl}}"></image>
+          <view class="maifangname">{{item.user[0].nickName}}</view> 
+        </view>
+        <view class="shangpinneirong">
+          <view style="width:100%">{{item.spec}}</view>
+          
+          <view class="goodsImg" wx:for="{{item.img}}">
+            <image src="{{item}}"></image>
+          </view>
+          
+          <view class="box" style="width:100%">
+            <view class="type">#{{item.type}}</view>
+            <view class="fabutime">{{item.bulletin_date}}</view>
+          </view>
+          <view class="schoolArea">
+          <image src="../../images/位置.png" class="weizhi"></image>
+          {{item.user[0].schoolArea}}</view>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</template> 

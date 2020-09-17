@@ -1,0 +1,87 @@
+page {
+  display: flex;
+  flex-direction: column;
+  background-color:white;
+  color: #000;
+  height: 100%;
+}
+.target_style {
+  margin-top: 30rpx;
+}
+.textarea01 {
+  margin-left: 50rpx;
+  width: 640rpx;
+  height: 60rpx;
+}
+.picker{
+    padding: 16px;
+    background-color: #FFFFFF;
+}
+.priceinput {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  margin-left: 50rpx;
+  display: flex;
+  flex-direction: row;
+}
+.input01 {
+  width: 200rpx;
+}
+.textarea02 {
+  margin-left: 50rpx;
+  width: 640rpx;
+  height: 200rpx;
+}
+.button-type {
+  height: 100rpx;
+  margin-left: 50rpx;
+  bottom: 10rpx;
+  background-color:#348899;
+  position: center;
+  width: 88%;
+}
+.border_line {
+  height: 2rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  background-color: #eee;
+}
+.images_box{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: white;
+}
+.img-box{
+  border: 5rpx;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.452);
+  width: 160rpx;
+  height: 160rpx;
+  margin-left: 35rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.img-delete{
+  width:30rpx;
+  height:30rpx;
+  border-radius:50%;
+  position:absolute;
+  right:-20rpx;
+  top:-20rpx;
+}
+.img{
+  width: 100%;
+  height: 100%;
+}
+.page-section-gap{
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.page-body-button {
+  margin-bottom: 30rpx;
+}

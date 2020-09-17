@@ -1,0 +1,89 @@
+<!--index.wxml-->
+ <view class="personalWrap">
+    <view class="personalMe" >
+        <image src="{{userinfo[0].avatarUrl}}" style="width:68px;height:68px;border:1px solid #ddd;float:left;margin:30rpx 50rpx;border-radius: 50%;"></image>
+        <view class="personalInfo">
+            <text style="color:white">昵称：{{userinfo[0].nickName}}</text>
+            <view class="getLocBtn">
+            <view>获取当前位置</view>
+            <button  bindtap="goToLocation" ></button>
+            </view>
+        </view>
+    </view>
+ </view>   
+<view class="navbag">
+  <view class="nav">
+    <scroll-view scroll-x="true">
+      <view class="scroll-view_H"> 
+        <view>
+          <text class="{{flag==0?'select':'normal'}}" id="0" bindtap="switchNav" space="ensp">    信息   </text>
+        </view>
+        <view>
+          <text class="{{flag==1?'select':'normal'}}" id="1" bindtap="switchNav" space="ensp">      已发布        </text>
+        </view>
+        <view>
+          <text class="{{flag==2?'select':'normal'}}" id="2" bindtap="switchNav">已交易</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<swiper current="{{flag}}" style="height:800px;" >
+<swiper-item class="swiper-item">
+    <button bindtap="getData" >点击获取数据</button>
+   
+  
+    <view wx:for="{{userinfo}}" class="personalList">
+      <view>性别：<text style="float:right;color:grey" >{{item.gender}}</text></view>
+      <view>学校：<text style="float:right;color:grey" >{{item.school}}</text></view>
+      <view>校区：<text style="float:right;color:grey" >{{item.schoolArea}}</text></view>
+      <view>专业：<text style="float:right;color:grey" >{{item.major}}</text></view>
+      <view>微信号：<text style="float:right;color:grey" >{{item.wxNumber}}</text></view>
+      <view>电话号码：<text style="float:right;color:grey" >{{item.phone}}</text></view>
+      
+    </view>
+</swiper-item>
+<swiper-item class="swiper-item"  >
+  <button bindtap="getList0" >点击获取数据</button>
+  <view class='list'>
+    <block wx:for='{{goodlist0}}' wx:key='list' wx:for-item="item">
+    
+    <view class="list_item">
+        <navigator url=' '>
+        <view class='img'>
+          <image src="{{imghref}}{{item.img}}"  mode="scaleToFill"/>
+        </view>
+        <view class='info'>
+          <view class='name'>{{item.goods_name}}</view>
+          <view class='price'>￥{{item.price}}</view>
+        </view>
+        </navigator>
+        <view class='clear'></view>
+    </view>
+    </block>
+  </view>
+</swiper-item>
+<swiper-item class="swiper-item"  >
+  <button bindtap="getList1" >点击获取数据</button>
+  <view class='list'>
+    <block wx:for='{{goodlist1}}' wx:key='list' wx:for-item="item">
+    
+    <view class="list_item">
+        <navigator url=' '>
+        <view class='img'>
+          <image src="{{imghref}}{{item.img}}"  mode="scaleToFill"/>
+        </view>
+        <view class='info'>
+          <view class='name'>{{item.goods_name}}</view>
+          <view class='price'>￥{{item.price}}</view>
+        </view>
+        </navigator>
+        <view class='clear'></view>
+    </view>
+    </block>
+  </view>
+</swiper-item>
+</swiper>
+
+
+

@@ -1,0 +1,3 @@
+<!--pages/show/show.wxml-->
+<text>这是商品详情页</text>
+<view> 商品id为{{goods_id}}</view>

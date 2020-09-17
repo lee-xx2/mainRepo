@@ -1,0 +1,31 @@
+<!--pages/ChangeForm/ChangeForm.wxml-->
+<form bindsubmit="formSubmit">
+<view class="containers">
+  <view class="bg-fff p-lr30 border-t">
+    <view class="ipt-wrap border-b flex ai-center">
+      <label for="" class="font14">学校</label>
+      <input name="school" class="ml40 flex1" placeholder="{{user.school?user.school:'请输入学校'}}"></input>
+    </view>
+     <view class="ipt-wrap border-b flex ai-center">
+      <label for="" class="font14">校区</label>
+      <input name="schoolArea" class="ml40 flex1" placeholder="{{user.schoolArea?user.schoolArea:'请输入校区'}}" ></input>
+    </view>
+     <view class="ipt-wrap border-b flex ai-center">
+      <label for="" class="font14">专业</label>
+      <input name="major" class="ml40 flex1" placeholder="{{user.major?user.major:'请输入专业'}}" ></input>
+    </view>
+     <view class="ipt-wrap border-b flex ai-center">
+      <label for="" class="font14">微信号</label>
+      <input name="wxNumber" class="ml40 flex1" placeholder="{{user.wxNumber?user.wxNumber:'请输入微信号'}}"></input>
+    </view>
+    <view class="ipt-wrap border-b flex ai-center">
+      <label for="" class="font14">手机号</label>
+      <input name="phone" class="ml40 flex1" maxlength="11" placeholder="{{user.phone?user.phone:'请输入手机号'}}" ></input>
+    </view>
+</view>
+  <view class="combtn font16 _w100 bg-btn  color-fff" >
+   <button form-type="submit" bindtap="onUpdate">保存</button>
+  </view>
+
+ </view>
+ </form>

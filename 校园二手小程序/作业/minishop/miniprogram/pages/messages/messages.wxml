@@ -1,0 +1,27 @@
+<!--pages/messages/messages.wxml-->
+<!-- <view class="chatListItem">
+  <view class="avatarUrl">
+    <image mode="widthFix" src="https://wx.qlogo.cn/mmopen/vi_32/oD5gdfSCtrTKt7INDoVQAl6Eic6znpYul7f094VQ1eFk1ibDHcmCWkyaibwDPib502xIYuiaWic0nkCicYia973GMOuUSA/132"></image>
+  </view>
+  <view class="nickName">Freedom</view>  
+</view> -->
+
+
+  <navigator class="chatListItem"  wx:for="{{friends}}" wx:key="thatOpenid" url="/pages/im/room/room?id={{item.roomId}}&name={{item.thatNickName}}">
+    
+      <view class="avatarUrl">
+      <image mode="widthFix" src="{{item.thatAvatar}}"></image>
+      </view>
+      <view class="nickName">{{item.thatNickName}}</view>  
+    
+    
+  </navigator>
+
+
+<!-- <view class="chatListItem">
+  <view class="avatarUrl">
+    <image mode="widthFix" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIYg80llu8nzOTzULgicNCuD02mKbKTp6Ft1XGxmFrWZpBDcF3ETEHkic8IAXWmrqH5oiaeu5E0MOWVQ/132"></image>
+  </view>
+  <view class="nickName">G。</view>  
+</view> -->
+

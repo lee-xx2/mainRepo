@@ -1,0 +1,4 @@
+<!--pages/testSellerInfo/testSellerInfo.wxml-->
+<text>pages/testSellerInfo/testSellerInfo.wxml</text>
+<view>{{seller_nickName}}</view>
+<image src="{{seller_avatarUrl}}"></image>
